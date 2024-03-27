@@ -1,0 +1,7 @@
+Apple 
+Orange
+Mango
+Bike
+Car
+Bus
+Aeroplane
