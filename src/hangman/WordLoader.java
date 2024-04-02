@@ -13,7 +13,8 @@ public class WordLoader {
 	 
 	 public WordLoader(String name)  {
 		 
-		 loadWords("words.txt");
+		 loadWords(name);
+		
 		 
 	 }
 
@@ -23,7 +24,7 @@ public class WordLoader {
 			reader = new BufferedReader(new FileReader(name));
 			String line;
 			while((line = reader.readLine()) != null) {
-				wordsList.add(line.trim());
+			wordsList.add(line.trim());
 				
 			}reader.close();
 		} catch (IOException e) {

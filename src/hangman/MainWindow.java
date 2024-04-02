@@ -10,6 +10,8 @@ public class MainWindow extends JFrame {
 	
 	private HealthPanel healthPanel;
 	private WordPanel wordPanel;
+	private ButtonPanel buttonPanel;
+	private WordLoader wordLoader;
 	
 	
 	public MainWindow() {
@@ -20,7 +22,7 @@ public class MainWindow extends JFrame {
 		
 		setLayout(new BorderLayout());
 		
-		WordLoader wordLoader = new WordLoader("words.txt");
+		wordLoader = new WordLoader("words.txt");
 		String newWord = wordLoader.randomWord();
 		
 		wordPanel = new WordPanel(newWord);
@@ -30,10 +32,20 @@ public class MainWindow extends JFrame {
 		healthPanel = new HealthPanel(6); 
 		add(healthPanel, BorderLayout.NORTH);
 		
+		buttonPanel = new ButtonPanel(wordPanel, healthPanel, this, wordLoader);
+		add(buttonPanel,BorderLayout.SOUTH );
 		
 		
 		setVisible(true);
 
 	 
+	}
+	
+	public void restartGame() {
+		
+		String newWord = wordLoader.randomWord();
+		wordPanel.update(newWord);
+		healthPanel.resetHealth();
+		buttonPanel.resetButtons();
 	}
 }

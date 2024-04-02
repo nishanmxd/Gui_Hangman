@@ -45,13 +45,13 @@ public class WordPanel extends JPanel{
 		boolean guessedRight = false;
 		
 		for(int i=0; i<word.length(); i++){
-			if(word.charAt(i) == letters.charAt(0)) {
+			if(String.valueOf(word.charAt(i)).equalsIgnoreCase(letters)) {
 				emptyWord.setCharAt(i * 2, letters.charAt(0));
 				guessedRight = true;
 			}
 		}
 		
-		wordLabel.setText(emptyWord.toString());
+		wordLabel.setText(emptyWord.toString().replace("", ""));
         return guessedRight;
 		
 	}
@@ -60,10 +60,11 @@ public class WordPanel extends JPanel{
 		
 		return !emptyWord.toString().contains("_");
 	}
-
-
-  
-
+	
+	public String getWord() {
+		
+		return word;
+	}
 	
 
 }

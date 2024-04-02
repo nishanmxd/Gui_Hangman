@@ -34,6 +34,14 @@ public class HealthPanel extends JPanel{
         return guessesLeft == 0; // returns true if no remaining guesses left
     }
 	
+	public void resetHealth() {
+		
+		guessesLeft = guessLabels.length;
+		for(JLabel label: guessLabels) {
+			label.setForeground(Color.GREEN);
+		}
+	}
+	
 	
 	
 }
